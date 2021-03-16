@@ -12,7 +12,7 @@ import '../Models/IconPack.dart';
 
 class DefaultDialog extends StatefulWidget {
   DefaultDialog({
-    Key? key,
+    Key key,
     this.showSearchBar,
     this.routedView = false,
     this.adaptive = false,
@@ -35,26 +35,26 @@ class DefaultDialog extends StatefulWidget {
     this.customIconPack,
   }) : super(key: key);
 
-  final bool? showSearchBar;
+  final bool showSearchBar;
   final bool routedView;
   final bool adaptive;
-  final bool? showTooltips;
-  final bool? barrierDismissible;
-  final double? iconSize;
-  final Color? iconColor;
-  final double? mainAxisSpacing;
-  final double? crossAxisSpacing;
-  final ShapeBorder? iconPickerShape;
-  final Color? backgroundColor;
-  final BoxConstraints? constraints;
-  final Widget? title;
-  final Widget? closeChild;
-  final Icon? searchIcon;
-  final String? searchHintText;
-  final Icon? searchClearIcon;
-  final String? noResultsText;
-  final IconPack? iconPackMode;
-  final Map<String, IconData>? customIconPack;
+  final bool showTooltips;
+  final bool barrierDismissible;
+  final double iconSize;
+  final Color iconColor;
+  final double mainAxisSpacing;
+  final double crossAxisSpacing;
+  final ShapeBorder iconPickerShape;
+  final Color backgroundColor;
+  final BoxConstraints constraints;
+  final Widget title;
+  final Widget closeChild;
+  final Icon searchIcon;
+  final String searchHintText;
+  final Icon searchClearIcon;
+  final String noResultsText;
+  final IconPack iconPackMode;
+  final Map<String, IconData> customIconPack;
 
   @override
   _DefaultDialogState createState() => _DefaultDialogState();
@@ -72,7 +72,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
           backgroundColor: widget.backgroundColor,
           title: Row(
             children: [
-              widget.title!,
+              widget.title,
               PopupMenuButton(
                   onSelected: (selectedValue) {
                     print(selectedValue);
@@ -192,7 +192,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
                         child: DefaultTextStyle(
                           child: Row(
                             children: [
-                              widget.title!,
+                              widget.title,
                               PopupMenuButton(
                                   onSelected: (selectedValue) {
                                     print(selectedValue);
@@ -210,7 +210,8 @@ class _DefaultDialogState extends State<DefaultDialog> {
                                         IconPicker.iconMap = lineAwesomeIcons;
                                         break;
                                       default:
-                                        IconPicker.iconMap = widget.customIconPack;
+                                        IconPicker.iconMap =
+                                            widget.customIconPack;
                                         break;
                                     }
                                     setState(() {});
@@ -235,7 +236,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
                             ],
                           ),
                           style: TextStyle(
-                            color: ColorBrightness(widget.backgroundColor!)
+                            color: ColorBrightness(widget.backgroundColor)
                                     .isLight()
                                 ? Colors.black
                                 : Colors.white,
@@ -247,7 +248,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
                         icon: Icon(
                           Icons.close,
                           color:
-                              ColorBrightness(widget.backgroundColor!).isLight()
+                              ColorBrightness(widget.backgroundColor).isLight()
                                   ? Colors.black
                                   : Colors.white,
                         ),
@@ -256,7 +257,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
                     ],
                   ),
                 ),
-                if (widget.showSearchBar!)
+                if (widget.showSearchBar)
                   SearchBar(
                     iconPack: widget.iconPackMode,
                     customIconPack: widget.customIconPack,
@@ -291,7 +292,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
         title: DefaultTextStyle(
           child: Row(
             children: [
-              widget.title!,
+              widget.title,
               PopupMenuButton(
                   onSelected: (selectedValue) {
                     print(selectedValue);
@@ -330,7 +331,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
             ],
           ),
           style: TextStyle(
-            color: ColorBrightness(widget.backgroundColor!).isLight()
+            color: ColorBrightness(widget.backgroundColor).isLight()
                 ? Colors.black
                 : Colors.white,
             fontSize: 20,
@@ -340,7 +341,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
           constraints: widget.constraints,
           child: Column(
             children: <Widget>[
-              if (widget.showSearchBar!)
+              if (widget.showSearchBar)
                 SearchBar(
                   iconPack: widget.iconPackMode,
                   customIconPack: widget.customIconPack,
@@ -373,7 +374,7 @@ class _DefaultDialogState extends State<DefaultDialog> {
               ),
             ),
             onPressed: () => Navigator.of(context).pop(),
-            child: widget.closeChild!,
+            child: widget.closeChild,
           ),
         ],
       );

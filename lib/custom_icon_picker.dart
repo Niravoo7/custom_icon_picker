@@ -17,7 +17,7 @@ import 'IconPicker/searchBar.dart';
 import 'Models/IconPack.dart';
 
 class FlutterIconPicker {
-  static Future<IconModel?> showIconPicker(
+  static Future<IconModel> showIconPicker(
     BuildContext context, {
 
     /// Defines if the searchbar will be
@@ -44,7 +44,7 @@ class FlutterIconPicker {
 
     /// The color of every Icon to be picked
     /// Defaults to `Theme.of(context).iconTheme.color` settings
-    Color? iconColor,
+    Color iconColor,
 
     /// How much space to place between children in a run in the main axis.
     /// For example, if [spacing] is 10.0, the children will be spaced at least 10.0 logical pixels apart in the main axis.
@@ -58,11 +58,11 @@ class FlutterIconPicker {
 
     /// The dialogs shape for the picker
     /// Defaults to AlertDialog shape
-    ShapeBorder? iconPickerShape,
+    ShapeBorder iconPickerShape,
 
     /// The color for the AlertDialog's background color
     /// Defaults to `Theme.of(context).dialogBackgroundColor` settings
-    Color? backgroundColor,
+    Color backgroundColor,
 
     /// The dialogs `BoxConstraints` for limiting/setting:
     /// `maxHeight`, `maxWidth`, `minHeight`, `minWidth`
@@ -70,7 +70,7 @@ class FlutterIconPicker {
     /// ```dart
     ///   const BoxConstraints(maxHeight: 350, minWidth: 450, maxWidth: 678)
     /// ```
-    BoxConstraints? constraints,
+    BoxConstraints constraints,
 
     /// The title for the Picker.
     /// Sits above the [SearchBar] and [Icons].
@@ -127,12 +127,12 @@ class FlutterIconPicker {
 
     /// Provide here your custom IconPack in a [Map<String, IconData>]
     /// to show your own collection of Icons to pick from
-    Map<String, IconData>? customIconPack,
+    Map<String, IconData> customIconPack,
   }) async {
     if (iconPackMode == IconPack.custom && customIconPack == null) {
       Fluttertoast.showToast(
           msg:
-          "You need to provide your customIconPack if you set IconPack.custom",
+              "You need to provide your customIconPack if you set IconPack.custom",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
@@ -160,7 +160,7 @@ class FlutterIconPicker {
       backgroundColor = Theme.of(context).dialogBackgroundColor;
 
     //IconData? iconPicked;
-    IconModel? iconPicked;
+    IconModel iconPicked;
 
     if (adaptiveDialog) {
       if (MediaQuery.of(context).size.width >= constraints.maxWidth) {

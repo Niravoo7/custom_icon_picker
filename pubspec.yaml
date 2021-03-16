@@ -1,19 +1,21 @@
 name: custom_icon_picker
 description: A Dialog for picking Icons in Flutter and use them anywhere. Can be
   used as a default Dialog or as a Adaptive Dialog.
-version: 3.0.0-nullsafety
 homepage: https://github.com/Niravoo7
 repository: https://github.com/Niravoo7/custom_icon_picker
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.12.0"
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0 <2.0.0"
+
+  #sdk: '>=2.12.0 <3.0.0'
+  #flutter: ">=1.12.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  font_awesome_flutter: ^9.0.0-nullsafety
+  font_awesome_flutter: 8.12.0
   fluttertoast: 7.1.8
 
 dev_dependencies:

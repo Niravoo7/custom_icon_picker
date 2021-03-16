@@ -75,9 +75,9 @@
     },
     {
       "name": "font_awesome_flutter",
-      "rootUri": "file:///C:/Users/new/Desktop/flutter_sdk/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-9.0.0-nullsafety",
+      "rootUri": "file:///C:/Users/new/Desktop/flutter_sdk/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-8.12.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.0"
     },
     {
       "name": "js",
@@ -161,10 +161,10 @@
       "name": "custom_icon_picker",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-03-14T07:13:19.978016Z",
+  "generated": "2021-03-16T16:05:07.078104Z",
   "generator": "pub",
   "generatorVersion": "2.12.0"
 }

@@ -12,25 +12,25 @@ import '../Models/IconPack.dart';
 import '../Helpers/ColorBrightness.dart';
 
 class IconPicker extends StatefulWidget {
-  final IconPack? iconPack;
-  final Map<String, IconData>? customIconPack;
-  final double? iconSize;
-  final Color? iconColor;
-  final String? noResultsText;
-  final double? mainAxisSpacing;
-  final double? crossAxisSpacing;
-  final Color? backgroundColor;
-  final bool? showTooltips;
+  final IconPack iconPack;
+  final Map<String, IconData> customIconPack;
+  final double iconSize;
+  final Color iconColor;
+  final String noResultsText;
+  final double mainAxisSpacing;
+  final double crossAxisSpacing;
+  final Color backgroundColor;
+  final bool showTooltips;
 
-  static late Function reload;
-  static Map<String, IconData>? iconMap;
+  static Function reload;
+  static Map<String, IconData> iconMap;
 
   const IconPicker({
-    Key? key,
-    required this.iconPack,
-    required this.iconSize,
-    required this.noResultsText,
-    required this.backgroundColor,
+    Key key,
+    this.iconPack,
+    this.iconSize,
+    this.noResultsText,
+    this.backgroundColor,
     this.mainAxisSpacing,
     this.crossAxisSpacing,
     this.iconColor,
@@ -43,7 +43,6 @@ class IconPicker extends StatefulWidget {
 }
 
 class _IconPickerState extends State<IconPicker> {
-
   @override
   void initState() {
     super.initState();
@@ -64,9 +63,9 @@ class _IconPickerState extends State<IconPicker> {
           padding: EdgeInsets.only(top: 10),
           child: RichText(
             text: TextSpan(
-              text: widget.noResultsText! + ' ',
+              text: widget.noResultsText + ' ',
               style: TextStyle(
-                color: ColorBrightness(widget.backgroundColor!).isLight()
+                color: ColorBrightness(widget.backgroundColor).isLight()
                     ? Colors.black
                     : Colors.white,
               ),
@@ -75,7 +74,7 @@ class _IconPickerState extends State<IconPicker> {
                   text: SearchBar.searchTextController.text,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: ColorBrightness(widget.backgroundColor!).isLight()
+                    color: ColorBrightness(widget.backgroundColor).isLight()
                         ? Colors.black
                         : Colors.white,
                   ),
@@ -92,26 +91,26 @@ class _IconPickerState extends State<IconPicker> {
       padding: const EdgeInsets.only(top: 5),
       child: Stack(
         children: <Widget>[
-          if (IconPicker.iconMap!.length == 0)
+          if (IconPicker.iconMap.length == 0)
             _getListEmptyMsg()
           else
             Positioned.fill(
               child: GridView.builder(
-                  itemCount: IconPicker.iconMap!.length,
+                  itemCount: IconPicker.iconMap.length,
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                     childAspectRatio: 1 / 1.5,
                     mainAxisSpacing: 5,
                     crossAxisSpacing: 5,
                     maxCrossAxisExtent:
-                        widget.iconSize != null ? widget.iconSize! + 10 : 50,
+                        widget.iconSize != null ? widget.iconSize + 10 : 50,
                   ),
                   itemBuilder: (context, index) {
-                    var item = IconPicker.iconMap!.entries.elementAt(index);
+                    var item = IconPicker.iconMap.entries.elementAt(index);
 
                     return GestureDetector(
                       onTap: () => Navigator.pop(
                           context, IconModel(item.value, item.key)),
-                      child: widget.showTooltips!
+                      child: widget.showTooltips
                           ? Tooltip(
                               message: item.key,
                               child: Container(
@@ -162,10 +161,10 @@ class _IconPickerState extends State<IconPicker> {
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.lerp(
-                        Alignment.topCenter, Alignment.center, .05)!,
+                        Alignment.topCenter, Alignment.center, .05),
                     colors: [
-                      widget.backgroundColor!,
-                      widget.backgroundColor!.withOpacity(.1),
+                      widget.backgroundColor,
+                      widget.backgroundColor.withOpacity(.1),
                     ],
                     stops: [
                       0.0,
@@ -181,10 +180,10 @@ class _IconPickerState extends State<IconPicker> {
                 gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
                     end: Alignment.lerp(
-                        Alignment.bottomCenter, Alignment.center, .05)!,
+                        Alignment.bottomCenter, Alignment.center, .05),
                     colors: [
-                      widget.backgroundColor!,
-                      widget.backgroundColor!.withOpacity(.1),
+                      widget.backgroundColor,
+                      widget.backgroundColor.withOpacity(.1),
                     ],
                     stops: [
                       0.0,

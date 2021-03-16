@@ -11,21 +11,21 @@ import 'icons.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({
-    required this.iconPack,
-    required this.searchHintText,
-    required this.searchIcon,
-    required this.searchClearIcon,
-    required this.backgroundColor,
+    this.iconPack,
+    this.searchHintText,
+    this.searchIcon,
+    this.searchClearIcon,
+    this.backgroundColor,
     this.customIconPack,
-    Key? key,
+    Key key,
   }) : super(key: key);
 
-  final IconPack? iconPack;
-  final Map<String, IconData>? customIconPack;
-  final String? searchHintText;
-  final Icon? searchIcon;
-  final Icon? searchClearIcon;
-  final Color? backgroundColor;
+  final IconPack iconPack;
+  final Map<String, IconData> customIconPack;
+  final String searchHintText;
+  final Icon searchIcon;
+  final Icon searchClearIcon;
+  final Color backgroundColor;
 
   static TextEditingController searchTextController = TextEditingController();
 
@@ -38,7 +38,7 @@ class _SearchBarState extends State<SearchBar> {
     Map<String, IconData> searchResult = Map<String, IconData>();
 
     if (widget.iconPack == IconPack.custom && widget.customIconPack != null)
-      widget.customIconPack!.forEach((String key, IconData val) {
+      widget.customIconPack.forEach((String key, IconData val) {
         if (key.toLowerCase().contains(searchValue.toLowerCase())) {
           searchResult.putIfAbsent(key, () => val);
         }
@@ -67,14 +67,14 @@ class _SearchBarState extends State<SearchBar> {
       onChanged: (val) => _search(val),
       controller: SearchBar.searchTextController,
       style: TextStyle(
-        color: ColorBrightness(widget.backgroundColor!).isLight()
+        color: ColorBrightness(widget.backgroundColor).isLight()
             ? Colors.black
             : Colors.white,
       ),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 15),
         hintStyle: TextStyle(
-          color: ColorBrightness(widget.backgroundColor!).isLight()
+          color: ColorBrightness(widget.backgroundColor).isLight()
               ? Colors.black54
               : Colors.white54,
         ),
@@ -83,7 +83,7 @@ class _SearchBarState extends State<SearchBar> {
         suffixIcon: AnimatedSwitcher(
           child: SearchBar.searchTextController.text.isNotEmpty
               ? IconButton(
-                  icon: widget.searchClearIcon!,
+                  icon: widget.searchClearIcon,
                   onPressed: () => setState(() {
                     SearchBar.searchTextController.clear();
                     if (widget.iconPack == IconPack.custom &&

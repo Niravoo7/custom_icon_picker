@@ -18,7 +18,7 @@ import 'Packs/LineIcons.dart';
 import 'package:flutter/widgets.dart';
 
 class IconManager {
-  static Map<String, IconData> getSelectedPack(IconPack? pickedPack) {
+  static Map<String, IconData> getSelectedPack(IconPack pickedPack) {
     switch (pickedPack) {
       case IconPack.material:
         return icons;
